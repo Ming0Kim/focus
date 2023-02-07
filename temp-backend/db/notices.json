@@ -1,0 +1,27 @@
+{
+  "notices": [{
+      "title": "공지1",
+      "createdAt": "Feb 06, 2023",
+      "content": "공지1입니다",
+      "categoryName": "Release Note"
+    },
+    {
+      "title": "공지2",
+      "createdAt": "Feb 07, 2023",
+      "content": "공지2입니다",
+      "categoryName": "Release Note"
+    },
+    {
+      "title": "공지3",
+      "createdAt": "Feb 08, 2023",
+      "content": "공지3입니다",
+      "categoryName": "Release Note"
+    },
+    {
+      "title": "공지4",
+      "createdAt": "Feb 09, 2023",
+      "content": "공지4입니다",
+      "categoryName": "Release Note"
+    }
+  ]
+}
