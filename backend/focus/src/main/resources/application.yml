@@ -1,0 +1,54 @@
+server:
+  port: 8082
+
+spring:
+  web:
+    resources:
+      add-mappings: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/focus_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true
+    hikari:
+      username: root
+      password: enjoy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+  redis:
+    host: i8a106.p.ssafy.io
+    port: 6379
+    password: blackbunny
+  mvc:
+    throw-exception-if-no-handler-found: true
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 500KB
+      max-request-size: 215MB
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+            auth: true
+    host: smtp.gmail.com
+    port: 587
+    username: blackbunnya106@gmail.com
+    password: ppcohvausdqwdzie
+jwt:
+  secret: dyAeHubOOc8KaOfYB6XEQoEj1QzRlVgtjNL8PYs1A1tymZvvqkcEU7L1imkKHeDa
+  expiration: 1296000000

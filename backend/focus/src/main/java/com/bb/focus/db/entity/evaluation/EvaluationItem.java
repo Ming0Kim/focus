@@ -1,5 +1,8 @@
 package com.bb.focus.db.entity.evaluation;
 
+import com.sun.istack.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,19 +13,28 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor()
 @Table(name = "evaluation_items")
 public class EvaluationItem {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "evaluation_item_id")
     private Long id;
 
-    private Long evaluationSheetId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="evaluation_sheet_id")
+    private EvaluationSheet evaluationSheet;
 
+    @OneToMany(targetEntity = com.bb.focus.db.entity.evaluation.EvaluationResult.class,
+        mappedBy = "evaluationItem")
+    private List<EvaluationResult> evaluationResultList = new ArrayList<>();
+
+    @NotNull
+    @Column(length = 500)
     private String scaleContent;
 
-    private int scoreRange;
+    @NotNull
+    private Byte scoreRange;
 
 }

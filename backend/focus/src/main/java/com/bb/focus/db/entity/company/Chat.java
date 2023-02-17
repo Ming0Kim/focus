@@ -1,6 +1,9 @@
 package com.bb.focus.db.entity.company;
 
 import com.bb.focus.db.entity.applicant.Applicant;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,21 +13,25 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@Table(name="chatting")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name="chat_room")
 public class Chat {
 
     @Id
-    @GeneratedValue
-    private long chattingId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="chat_room_id")
+    private Long id;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="company_admin_id")
-    private CompanyAdmin companyAdminId;
+    private CompanyAdmin companyAdmin;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="applicant_id")
-    private Applicant applicantId;
+    private Applicant applicant;
+
+    @OneToMany(targetEntity = com.bb.focus.db.entity.company.ChatMessage.class, mappedBy = "chat")
+    private List<ChatMessage> chatMessageList = new ArrayList<>();
 
 
 

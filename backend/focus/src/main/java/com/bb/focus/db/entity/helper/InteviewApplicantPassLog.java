@@ -2,6 +2,7 @@ package com.bb.focus.db.entity.helper;
 
 import com.bb.focus.db.entity.applicant.ApplicantPassLog;
 import com.bb.focus.db.entity.interview.Interview;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,22 +12,22 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name="interview_applicants_pass_log")
 public class InteviewApplicantPassLog {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="interview_applicants_pass_log_id")
-    private Long interviewApplicantPassId;
+    private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="interview_id")
-    private Interview interviewId;
+    private Interview interview;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="applicants_pass_log_id")
-    private ApplicantPassLog applicantPassLogId;
+    private ApplicantPassLog applicantPassLog;
 
 
 
