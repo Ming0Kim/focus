@@ -1,15 +1,15 @@
 server:
-  port: 8082
+  port: 
 
 spring:
   web:
     resources:
       add-mappings: false
   datasource:
-    url: jdbc:mysql://localhost:3306/focus_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true
+    url: 
     hikari:
-      username: root
-      password: ssafy
+      username: 
+      password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL57Dialect
@@ -24,9 +24,9 @@ spring:
       pageable:
         one-indexed-parameters: true
   redis:
-    host: i8a106.p.ssafy.io
-    port: 6379
-    password: blackbunny
+    host:
+    port: 
+    password: 
   mvc:
     throw-exception-if-no-handler-found: true
     pathmatch:
@@ -45,10 +45,10 @@ spring:
             enable: true
             required: true
             auth: true
-    host: smtp.gmail.com
-    port: 587
-    username: blackbunnya106@gmail.com
-    password: ppcohvausdqwdzie
+    host: 
+    port: 
+    username: 
+    password: 
 jwt:
-  secret: dyAeHubOOc8KaOfYB6XEQoEj1QzRlVgtjNL8PYs1A1tymZvvqkcEU7L1imkKHeDa
-  expiration: 1296000000
+  secret: 
+  expiration: 
